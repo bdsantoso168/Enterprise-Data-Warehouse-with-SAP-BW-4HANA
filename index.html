@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benedict Santoso — ISOM 230 SAP BW/4HANA Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #111827;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* ── Hero ── */
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 11px;
+      border-radius: 999px;
+      background: #F3F4F6;
+      color: #6B7280;
+      border: 0.5px solid #E5E7EB;
+      margin-bottom: 1.25rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    @media (max-width: 540px) {
+      .hero h1 { font-size: 24px; }
+    }
+
+    .hero h1 .accent {
+      color: #1D9E75;
+    }
+
+    .hero-lead {
+      font-size: 15px;
+      color: #4B5563;
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tool-pill {
+      font-size: 12px;
+      padding: 3px 11px;
+      border-radius: 999px;
+      border: 0.5px solid #E5E7EB;
+      color: #4B5563;
+      background: #ffffff;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 0.5px;
+      background: #E5E7EB;
+      margin: 2.25rem 0;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .09em;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Impact stats ── */
+    .impact-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 2.25rem;
+    }
+
+    @media (max-width: 540px) {
+      .impact-row { grid-template-columns: 1fr; }
+    }
+
+    .impact-card {
+      background: #F9FAFB;
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      border: 0.5px solid #F3F4F6;
+    }
+
+    .impact-n {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      line-height: 1.1;
+    }
+
+    .impact-n.teal   { color: #1D9E75; }
+    .impact-n.blue   { color: #185FA5; }
+    .impact-n.purple { color: #7F77DD; }
+
+    .impact-l {
+      font-size: 12px;
+      color: #6B7280;
+      line-height: 1.55;
+    }
+
+    /* ── ETL grid ── */
+    .etl-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 0.5px solid #E5E7EB;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 2.25rem;
+    }
+
+    @media (max-width: 580px) {
+      .etl-row { grid-template-columns: 1fr; }
+      .etl-cell + .etl-cell { border-top: 0.5px solid #E5E7EB; border-left: none; }
+    }
+
+    @media (min-width: 581px) {
+      .etl-cell + .etl-cell { border-left: 0.5px solid #E5E7EB; }
+    }
+
+    .etl-cell {
+      background: #ffffff;
+      padding: 1.25rem 1.35rem;
+    }
+
+    .etl-letter {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .etl-letter.e { color: #185FA5; }
+    .etl-letter.t { color: #1D9E75; }
+    .etl-letter.l { color: #7F77DD; }
+
+    .etl-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .etl-desc {
+      font-size: 12px;
+      color: #6B7280;
+      line-height: 1.7;
+    }
+
+    /* ── Progress bar ── */
+    .progress-track {
+      height: 5px;
+      background: #F3F4F6;
+      border-radius: 999px;
+      margin-bottom: .55rem;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 5px;
+      border-radius: 999px;
+      background: #1D9E75;
+      width: 62.5%;
+    }
+
+    .progress-note {
+      font-size: 12px;
+      color: #9CA3AF;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Benchmark cards ── */
+    .bm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+      margin-bottom: .5rem;
+    }
+
+    .bm-card {
+      background: #ffffff;
+      border: 0.5px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+    }
+
+    .bm-card.done { border-left: 3px solid #1D9E75; }
+    .bm-card.prog { border-left: 3px solid #EF9F27; }
+    .bm-card.pend { border-left: 3px solid #D1D5DB; opacity: .55; }
+
+    .bm-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: .65rem;
+    }
+
+    .bm-num {
+      font-size: 11px;
+      color: #9CA3AF;
+      font-weight: 500;
+    }
+
+    .bm-badge {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 9px;
+      border-radius: 999px;
+    }
+
+    .done-b { background: #ECFDF5; color: #065F46; }
+    .prog-b  { background: #FFFBEB; color: #92400E; }
+    .pend-b  { background: #F3F4F6; color: #9CA3AF; }
+
+    .bm-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: .35rem;
+    }
+
+    .bm-outcome {
+      font-size: 12px;
+      color: #1D9E75;
+      font-weight: 500;
+      margin-bottom: .45rem;
+    }
+
+    .bm-desc {
+      font-size: 12px;
+      color: #6B7280;
+      line-height: 1.7;
+      margin-bottom: .8rem;
+    }
+
+    .bm-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .skill-tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #F3F4F6;
+      color: #6B7280;
+    }
+
+    /* ── Proof of work image gallery ── */
+    .proof-section {
+      margin-top: 14px;
+      border-top: 0.5px solid #E5E7EB;
+      padding-top: 12px;
+    }
+
+    .proof-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 8px;
+    }
+
+    .proof-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .proof-img {
+      width: 130px;
+      height: 85px;
+      object-fit: cover;
+      object-position: top left;
+      border-radius: 6px;
+      border: 0.5px solid #E5E7EB;
+      cursor: zoom-in;
+      transition: all 0.25s ease;
+      display: block;
+    }
+
+    .proof-img:hover {
+      border-color: #1D9E75;
+    }
+
+    .proof-img.expanded {
+      width: 100%;
+      height: auto;
+      cursor: zoom-out;
+      border-color: #1D9E75;
+    }
+
+    .proof-caption {
+      font-size: 10px;
+      color: #9CA3AF;
+      margin-top: 4px;
+      line-height: 1.4;
+      max-width: 130px;
+    }
+
+    .proof-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .proof-item.expanded-item {
+      width: 100%;
+    }
+
+    /* ── Closing ── */
+    .closing {
+      font-size: 14px;
+      color: #4B5563;
+      line-height: 1.85;
+      border-left: 2.5px solid #1D9E75;
+      padding-left: 1.1rem;
+      margin-bottom: 2.25rem;
+      font-style: italic;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      font-size: 12px;
+      color: #9CA3AF;
+      border-top: 0.5px solid #E5E7EB;
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ── Image note (shown when image file is missing) ── */
+    .proof-placeholder {
+      width: 130px;
+      height: 85px;
+      border-radius: 6px;
+      border: 0.5px dashed #D1D5DB;
+      background: #F9FAFB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #9CA3AF;
+      text-align: center;
+      padding: 8px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-tag">ISOM 230 &mdash; Spring 2026 &mdash; SAP BW/4HANA</div>
+    <h1>
+      I built the data infrastructure<br>
+      that turns <span class="accent">raw sales data</span><br>
+      into business decisions.
+    </h1>
+    <p class="hero-lead">
+      From ingesting 171,000+ raw transaction records across two countries to modeling a fully structured enterprise data warehouse &mdash; this project covers the complete BI lifecycle. Not just technically, but with a clear understanding of why each decision matters to the business.
+    </p>
+    <div class="tools">
+      <span class="tool-pill">SAP BW/4HANA 2.0</span>
+      <span class="tool-pill">Eclipse Modeling Tools</span>
+      <span class="tool-pill">ETL Pipeline Design</span>
+      <span class="tool-pill">Data Warehouse Architecture</span>
+      <span class="tool-pill">OLAP Modeling</span>
+      <span class="tool-pill">SAP Fiori</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Impact stats -->
+  <div class="section-label">Business impact at a glance</div>
+  <div class="impact-row">
+    <div class="impact-card">
+      <div class="impact-n teal">171k+</div>
+      <div class="impact-l">Sales transactions loaded across Germany and US markets</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-n blue">2</div>
+      <div class="impact-l">Source systems unified into one structured data warehouse</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-n purple">$953M+</div>
+      <div class="impact-l">In cost of goods data now queryable for analytics</div>
+    </div>
+  </div>
+
+  <!-- ETL pipeline -->
+  <div class="section-label">How the pipeline was built</div>
+  <div class="etl-row">
+    <div class="etl-cell">
+      <div class="etl-letter e">E &mdash; Extract</div>
+      <div class="etl-title">Pulled raw data from source systems</div>
+      <div class="etl-desc">Designed DataSources for Germany and US CSV files, each with different locale formats &mdash; decimal separators, date conventions, and currency fields handled precisely.</div>
+    </div>
+    <div class="etl-cell">
+      <div class="etl-letter t">T &mdash; Transform</div>
+      <div class="etl-title">Turned data into structured information</div>
+      <div class="etl-desc">Applied field mapping, calculated Net Sales via formula rules, performed master data lookups for Sales Organization, and enforced constant language keys.</div>
+    </div>
+    <div class="etl-cell">
+      <div class="etl-letter l">L &mdash; Load</div>
+      <div class="etl-title">Delivered data into the warehouse</div>
+      <div class="etl-desc">Executed Data Transfer Processes (DTPs) to load both master data (29 materials) and transactional data (171k records) into an advanced DataStore Object.</div>
+    </div>
+  </div>
+
+  <!-- Progress -->
+  <div class="section-label">Project benchmarks</div>
+  <div class="progress-track"><div class="progress-fill"></div></div>
+  <div class="progress-note">5 of 8 benchmarks complete &mdash; updating as the project progresses</div>
+
+  <!-- Benchmark cards -->
+  <div class="bm-grid">
+
+    <!-- BM2 -->
+    <div class="bm-card done">
+      <div class="bm-top">
+        <span class="bm-num">Benchmark 2</span>
+        <span class="bm-badge done-b">Complete</span>
+      </div>
+      <div class="bm-title">Data acquisition</div>
+      <div class="bm-outcome">171,012 raw records successfully extracted</div>
+      <div class="bm-desc">Designed two DataSources to handle locale-specific formatting differences between Germany (comma decimals, EUR) and the US (period decimals, USD). Configured field types, conversion routines, and validated data previews before proceeding.</div>
+      <div class="bm-skills">
+        <span class="skill-tag">DataSource configuration</span>
+        <span class="skill-tag">ETL extract layer</span>
+        <span class="skill-tag">Data type mapping</span>
+        <span class="skill-tag">Format handling</span>
+      </div>
+      <!-- PROOF OF WORK
+           Rename your screenshots to these exact filenames and put them
+           in the same folder as this index.html file:
+             bm2_de_preview.png  ->  DE DataSource data preview in Eclipse
+             bm2_us_preview.png  ->  US DataSource data preview in Eclipse
+      -->
+      <div class="proof-section">
+        <div class="proof-label">Proof of work</div>
+        <div class="proof-images">
+          <div class="proof-item" id="item-bm2-de">
+            <img
+              src="bm2_de_preview.png"
+              alt="DE DataSource data preview in Eclipse"
+              class="proof-img"
+              onclick="toggleImg(this, 'item-bm2-de')"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+            >
+            <div class="proof-placeholder" style="display:none;">Add bm2_de_preview.png</div>
+            <div class="proof-caption">DE DataSource preview in Eclipse</div>
+          </div>
+          <div class="proof-item" id="item-bm2-us">
+            <img
+              src="bm2_us_preview.png"
+              alt="US DataSource data preview in Eclipse"
+              class="proof-img"
+              onclick="toggleImg(this, 'item-bm2-us')"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+            >
+            <div class="proof-placeholder" style="display:none;">Add bm2_us_preview.png</div>
+            <div class="proof-caption">US DataSource preview in Eclipse</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BM3 -->
+    <div class="bm-card done">
+      <div class="bm-top">
+        <span class="bm-num">Benchmark 3</span>
+        <span class="bm-badge done-b">Complete</span>
+      </div>
+      <div class="bm-title">InfoObject modeling</div>
+      <div class="bm-outcome">Core data model defined with business-aligned objects</div>
+      <div class="bm-desc">Modeled key figures (Revenue, Sales Quantity) and characteristics (Product Category, Material) as reusable, company-wide InfoObjects. Configured master data tables, language-dependent text descriptions, and navigational attributes for OLAP drill-down.</div>
+      <div class="bm-skills">
+        <span class="skill-tag">Dimensional modeling</span>
+        <span class="skill-tag">Master data design</span>
+        <span class="skill-tag">InfoObject architecture</span>
+        <span class="skill-tag">OLAP</span>
+      </div>
+      <!-- PROOF OF WORK
+           Rename your screenshots to these exact filenames:
+             bm3_revenue_infoobject.png  ->  Revenue InfoObject editor in Eclipse
+             bm3_material_infoobject.png ->  Material InfoObject editor in Eclipse
+      -->
+      <div class="proof-section">
+        <div class="proof-label">Proof of work</div>
+        <div class="proof-images">
+          <div class="proof-item" id="item-bm3-rev">
+            <img
+              src="bm3_revenue_infoobject.png"
+              alt="Revenue InfoObject configuration in Eclipse"
+              class="proof-img"
+              onclick="toggleImg(this, 'item-bm3-rev')"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+            >
+            <div class="proof-placeholder" style="display:none;">Add bm3_revenue_infoobject.png</div>
+            <div class="proof-caption">Revenue InfoObject in Eclipse</div>
+          </div>
+          <div class="proof-item" id="item-bm3-mat">
+            <img
+              src="bm3_material_infoobject.png"
+              alt="Material InfoObject configuration in Eclipse"
+              class="proof-img"
+              onclick="toggleImg(this, 'item-bm3-mat')"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+            >
+            <div class="proof-placeholder" style="display:none;">Add bm3_material_infoobject.png</div>
+            <div class="proof-caption">Material InfoObject in Eclipse</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BM4 -->
+    <div class="bm-card done">
+      <div class="bm-top">
+        <span class="bm-num">Benchmark 4</span>
+        <span class="bm-badge done-b">Complete</span>
+      </div>
+      <div class="bm-title">Master data load</div>
+      <div class="bm-outcome">29 materials loaded with full attributes and descriptions</div>
+      <div class="bm-desc">Built a complete data flow to load material attributes and text descriptions separately &mdash; a deliberate two-step process reflecting how master data is structured internally. Set a constant language key (EN) and verified both loads in SAP Fiori.</div>
+      <div class="bm-skills">
+        <span class="skill-tag">Data flow design</span>
+        <span class="skill-tag">Transformation rules</span>
+        <span class="skill-tag">DTP execution</span>
+        <span class="skill-tag">Fiori verification</span>
+      </div>
+      <!-- PROOF OF WORK
+           Rename your screenshots to these exact filenames:
+             bm4_data_flow.png        ->  Material data flow canvas in Eclipse
+             bm4_attributes.png       ->  Material attributes loaded in SAP Fiori
+             bm4_texts.png            ->  Material texts loaded in SAP Fiori
+             bm4_dtp_monitor.png      ->  DTP monitor showing 29 records success
+      -->
+      <div class="proof-section">
+        <div class="proof-label">Proof of work</div>
+        <div class="proof-images">
+          <div class="proof-item" id="item-bm4-flow">
+            <img
+              src="bm4_data_flow.png"
+              alt="Material data flow canvas in Eclipse"
+              class="proof-img"
+              onclick="toggleImg(this, 'item-bm4-flow')"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+            >
+            <div class="proof-placeholder" style="display:none;">Add bm4_data_flow.png</div>
+            <div class="proof-caption">Data flow canvas in Eclipse</div>
+          </div>
+          <div class="proof-item" id="item-bm4-attr">
+            <img
+              src="bm4_attributes.png"
+              alt="Material attributes loaded in SAP Fiori"
+              class="proof-img"
+              onclick="toggleImg(this, 'item-bm4-attr')"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+            >
+            <div class="proof-placeholder" style="display:none;">Add bm4_attributes.png</div>
+            <div class="proof-caption">Material attributes in SAP Fiori</div>
+          </div>
+          <div class="proof-item" id="item-bm4-txt">
+            <img
+              src="bm4_texts.png"
+              alt="Material texts loaded in SAP Fiori"
+              class="proof-img"
+              onclick="toggleImg(this, 'item-bm4-txt')"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+            >
+            <div class="proof-placeholder" style="display:none;">Add bm4_texts.png</div>
+            <div class="proof-caption">Material texts in SAP Fiori</div>
+          </div>
+          <div class="proof-item" id="item-bm4-dtp">
+            <img
+              src="bm4_dtp_monitor.png"
+              alt="DTP monitor showing 29 records loaded"
+              class="proof-img"
+              onclick="toggleImg(this, 'item-bm4-dtp')"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+            >
+            <div class="proof-placeholder" style="display:none;">Add bm4_dtp_monitor.png</div>
+            <div class="proof-caption">DTP monitor: 29 records loaded</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BM5 -->
+    <div class="bm-card prog">
+      <div class="bm-top">
+        <span class="bm-num">Benchmark 5</span>
+        <span class="bm-badge prog-b">In progress</span>
+      </div>
+      <div class="bm-title">Enterprise data warehouse build</div>
+      <div class="bm-outcome">Advanced DataStore Object being structured and loaded</div>
+      <div class="bm-desc">Building an aDSO with 5 dimension groups (Order, Customer, Product, Time, Measures) and replacing raw fields with semantically meaningful InfoObjects. Designing complex transformation rules including a calculated Net Sales formula and a time-dependent master data lookup for Sales Organization.</div>
+      <div class="bm-skills">
+        <span class="skill-tag">aDSO design</span>
+        <span class="skill-tag">Snowflake schema</span>
+        <span class="skill-tag">Formula rules</span>
+        <span class="skill-tag">Lookup transforms</span>
+      </div>
+      <!-- PROOF OF WORK
+           Rename your screenshots to these exact filenames:
+             bm5_adso_structure.png   ->  aDSO dimension groups in Eclipse
+             bm5_data_flow.png        ->  Sales data flow with two DataSources
+      -->
+      <div class="proof-section">
+        <div class="proof-label">Proof of work (in progress)</div>
+        <div class="proof-images">
+          <div class="proof-item" id="item-bm5-adso">
+            <img
+              src="bm5_adso_structure.png"
+              alt="aDSO dimension groups in Eclipse"
+              class="proof-img"
+              onclick="toggleImg(this, 'item-bm5-adso')"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+            >
+            <div class="proof-placeholder" style="display:none;">Add bm5_adso_structure.png</div>
+            <div class="proof-caption">aDSO structure in Eclipse</div>
+          </div>
+          <div class="proof-item" id="item-bm5-flow">
+            <img
+              src="bm5_data_flow.png"
+              alt="Sales data flow with two DataSources in Eclipse"
+              class="proof-img"
+              onclick="toggleImg(this, 'item-bm5-flow')"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+            >
+            <div class="proof-placeholder" style="display:none;">Add bm5_data_flow.png</div>
+            <div class="proof-caption">Sales data flow canvas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BM6 -->
+    <div class="bm-card pend">
+      <div class="bm-top">
+        <span class="bm-num">Benchmark 6</span>
+        <span class="bm-badge pend-b">Upcoming</span>
+      </div>
+      <div class="bm-title">BI reporting</div>
+      <div class="bm-outcome">Structured sales reports from the warehouse layer</div>
+      <div class="bm-desc">Will produce weekly and period-based sales reports, validating warehouse output against known totals.</div>
+      <div class="bm-skills">
+        <span class="skill-tag">BI reporting</span>
+        <span class="skill-tag">Data validation</span>
+      </div>
+    </div>
+
+    <!-- BM7 -->
+    <div class="bm-card pend">
+      <div class="bm-top">
+        <span class="bm-num">Benchmark 7</span>
+        <span class="bm-badge pend-b">Upcoming</span>
+      </div>
+      <div class="bm-title">Executive dashboard</div>
+      <div class="bm-outcome">Visual analytics layer for decision makers</div>
+      <div class="bm-desc">Will design an interactive dashboard surfacing sales performance across product, customer, and time dimensions.</div>
+      <div class="bm-skills">
+        <span class="skill-tag">Dashboard design</span>
+        <span class="skill-tag">Data visualization</span>
+      </div>
+    </div>
+
+    <!-- BM8 -->
+    <div class="bm-card pend">
+      <div class="bm-top">
+        <span class="bm-num">Benchmark 8</span>
+        <span class="bm-badge pend-b">Upcoming</span>
+      </div>
+      <div class="bm-title">Predictive analytics</div>
+      <div class="bm-outcome">Data mining models built on warehouse data</div>
+      <div class="bm-desc">Will apply SAP Predictive Analytics to build forecasting models from the structured sales dataset.</div>
+      <div class="bm-skills">
+        <span class="skill-tag">Predictive analytics</span>
+        <span class="skill-tag">Data mining</span>
+        <span class="skill-tag">SAP PA</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Closing -->
+  <div class="closing">
+    This is not just a class project. It is a working demonstration of how to move data from source systems into a structure where it can drive real business decisions &mdash; the same workflow used in enterprise analytics environments worldwide.
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>Benedict Daxell Santoso &mdash; ISOM 230, Spring 2026</span>
+    <span>Last updated: April 2026 &mdash; actively in progress</span>
+  </div>
+
+</div>
+
+<script>
+  function toggleImg(img, itemId) {
+    var item = document.getElementById(itemId);
+    var isExpanded = img.classList.contains('expanded');
+    if (isExpanded) {
+      img.classList.remove('expanded');
+      item.classList.remove('expanded-item');
+      img.style.cursor = 'zoom-in';
+    } else {
+      img.classList.add('expanded');
+      item.classList.add('expanded-item');
+      img.style.cursor = 'zoom-out';
+    }
+  }
+</script>
+
+</body>
+</html>
