@@ -24,4 +24,4 @@ modeling, ETL pipeline design, master data management, and analytics.
 SAP BW/4HANA 2.0, Eclipse Modeling Tools, SAP Fiori, SAP GUI
 
 ## Live portfolio
-View the portfolio site: https://benedictsantoso/Documents/ETL%20-%20SAP%20HANA/index.html
+View the portfolio site: https://bdsantoso.github.io/Enterprise-Data-Warehouse-with-SAP-BW-4HANA
