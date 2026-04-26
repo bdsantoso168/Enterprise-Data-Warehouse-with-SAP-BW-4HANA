@@ -11,7 +11,9 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: #ffffff; color: #111827; -webkit-font-smoothing: antialiased; }
     .page { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
-    .hero-tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 11px; border-radius: 999px; background: #F3F4F6; color: #6B7280; border: 0.5px solid #E5E7EB; margin-bottom: 1.25rem; letter-spacing: .05em; text-transform: uppercase; }
+    .hero-tag-row { display: flex; align-items: center; gap: 8px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+    .hero-tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 11px; border-radius: 999px; background: #F3F4F6; color: #6B7280; border: 0.5px solid #E5E7EB; letter-spacing: .05em; text-transform: uppercase; }
+    .leader-tag { background: #ECFDF5; color: #065F46; border-color: #A7F3D0; }
     .hero h1 { font-size: 30px; font-weight: 600; line-height: 1.25; margin-bottom: 1rem; color: #111827; }
     @media (max-width: 540px) { .hero h1 { font-size: 24px; } }
     .hero h1 .accent { color: #1D9E75; }
@@ -75,7 +77,10 @@
 <div class="page">
 
   <div class="hero">
-    <div class="hero-tag">ISOM 230 &mdash; Spring 2026 &mdash; SAP BW/4HANA</div>
+    <div class="hero-tag-row">
+      <div class="hero-tag">ISOM 230 &mdash; Spring 2026 &mdash; SAP BW/4HANA</div>
+      <div class="hero-tag leader-tag">Project Leader</div>
+    </div>
     <h1>I built the data infrastructure<br>that turns <span class="accent">raw sales data</span><br>into business decisions.</h1>
     <p class="hero-lead">From ingesting 171,000+ raw transaction records across two countries to modeling a fully structured enterprise data warehouse, building interactive dashboards, and running predictive forecasting models &mdash; this project covers the complete BI lifecycle. Not just technically, but with a clear understanding of why each decision matters to the business.</p>
     <div class="tools">
@@ -300,12 +305,7 @@
           <div class="proof-item" id="item-bm8-ts">
             <img src="bm8_timeseries.png" alt="Time series chart in SAP PA" class="proof-img" onclick="toggleImg(this,'item-bm8-ts')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="proof-placeholder" style="display:none;">Add bm8_timeseries.png</div>
-            <div class="proof-caption">Time series of GBI sales revenue</div>
-          </div>
-          <div class="proof-item" id="item-bm8-forecast">
-            <img src="bm8_forecast.png" alt="Forecasted revenue chart" class="proof-img" onclick="toggleImg(this,'item-bm8-forecast')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="proof-placeholder" style="display:none;">Add bm8_forecast.png</div>
-            <div class="proof-caption">Forecasted revenue for 2012</div>
+            <div class="proof-caption">Actual vs Predicted revenue chart</div>
           </div>
         </div>
       </div>
